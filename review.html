@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input type="checkbox" id="chk" value="cheese" class="x" />cheese<br />
+    <input type="checkbox" id="chk" value="salad" class="x" />salad<br />
+    <input type="checkbox" id="chk" value="gazoz" class="x" />גזוז<br />
+    <input type="button" value="set" onclick="a()" />
+    <input type="button" value="get" onclick="b()" />
+    
+
+    <script>
+        let x = { name: "simcha", age: 30, friends: [{ name: "sasson", phone: "0501234567" }, { name: "gil", phone: "0549876543" }] };
+        alert(x.friends[1].phone);
+
+
+        function a() {
+            //let c = document.getElementById("chk");
+            //if (c.checked) {
+            //    alert(c.value);
+            //}
+            console.clear();
+            let arr = document.getElementsByClassName("x");
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].checked) {
+                    //console.log(arr[i].value);
+                    // sessionStorage.setItem("t" + i, arr[i].value);
+                    localStorage.setItem("t" + i, arr[i].value);
+                }
+            }
+        }
+        function b() {
+            let s = "";
+            for (var i = 0; i < localStorage.length; i++) {
+                //s += sessionStorage.getItem(sessionStorage.key(i))
+                s += localStorage.getItem(localStorage.key(i)) + "\n";
+            }
+            alert(s);
+        }
+    </script>
+</body>
+</html>
